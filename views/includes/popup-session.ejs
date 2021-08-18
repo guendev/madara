@@ -1,0 +1,69 @@
+<div class="wp-manga-section">
+    <login-modal></login-modal>
+    <sign-up-modal></sign-up-modal>
+
+    <div class="modal fade" id="form-reset" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div id="reset" class="login">
+                        <h3>
+                            <a href="javascript:void(0)" class="to-reset">Lost your password?</a>
+                        </h3>
+                        <p class="message reset">Please enter your username or email address. You will receive a link to
+                            create a new password via email.</p>
+                        <form name="resetform" id="resetform" method="post">
+                            <p>
+                                <label>Username or Email Address <br>
+                                    <input type="text" name="user_reset" id="user_reset" class="input" value=""
+                                           size="20">
+                                </label>
+                            </p>
+                            <p class="submit">
+                                <input type="submit" name="wp-submit"
+                                       class="button button-primary button-large wp-submit" value="Get New Password">
+                                <input type="hidden" name="testcookie" value="1">
+                            </p>
+                        </form>
+                        <p>
+                            <a class="backtoblog" href="javascript:void(0)">← Back to Madara Demo</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="frm-wp-manga-buy-coin" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <h3>
+                        Chơi Game Cùng Ad Không ?
+                    </h3>
+                    <p class="message-sufficient">
+                        <span class="coin">Audition PC: lun_1m2</span>
+                    </p>
+                    <p class="message-sufficient">
+                        <span class="coin">PUBG MOBILE: 51363328630</span>
+                        Tặng gà cho Ad nha...hihi
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="button button-primary button-large wp-submit btn-agree">
+                        Chiến Luôn
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

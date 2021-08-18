@@ -1,0 +1,12 @@
+type User {
+    _id: Float!
+    name: String
+    email: String!
+    role: String!
+    avatar: String!
+    createdAt: Float
+}
+
+type Token {
+    token: String!
+}

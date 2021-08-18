@@ -1,0 +1,99 @@
+<html lang="en-US">
+
+<%- include(
+        'includes/head',
+        {
+            title: story.title,
+            description: '❶❶✅ Đọc truyện tranh ' + story.title + ' bản dịch Full mới nhất, ảnh đẹp chất lượng cao tại ' + process.env.DOMAIN,
+            seo_image: webAssets(story.avatar),
+            showAds: story.adsense
+        }
+    );
+-%>
+
+
+<body class="manga-page <%= lightTheme ? '' : 'text-ui-light' %>">
+<div id="app" class="wrap">
+    <div class="body-wrap">
+        <%- include('includes/header') -%>
+        <div class="site-content">
+            <div class="">
+                <%- include('schema/story', { story }) -%>
+                <%- include('story/profile') -%>
+                <div class="c-page-content style-1">
+                    <div class="content-area">
+                        <div class="container">
+                            <div class="row ">
+                                <div class="main-col col-md-8 col-sm-8">
+                                    <div class="main-col-inner">
+                                        <div class="c-page">
+                                            <div class="c-page__content">
+                                                <div class="c-blog__heading style-2 font-heading">
+                                                    <h2 class="h4">
+                                                        <i class="icon ion-ios-star"></i>
+                                                        VĂN ÁN
+                                                    </h2>
+                                                </div>
+                                                <div class="description-summary hide_show-more">
+                                                    <div class="summary__content">
+                                                        <p>
+                                                            <%= story.content %>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="c-blog__heading style-2 font-heading">
+                                                    <h2 class="h4">
+                                                        <i class="icon ion-ios-star"></i>
+                                                        CHƯƠNG MỤC
+                                                    </h2>
+                                                    <a href="javascript:void(0)" title="Change Order" class="btn-reverse-order">
+                                                        <i class="icon ion-md-swap"></i>
+                                                    </a>
+                                                </div>
+                                                <% if (story.adsense) {%>
+                                                    <%- include('includes/ads') -%>
+                                                <%} %>
+                                                <% if (chapters.length) { %>
+                                                    <%- include('story/list-chapter') -%>
+                                                <% } else { %>
+                                                    <div class="no-chapter">
+                                                        <img src="/images/no-chapter.png" alt=""/>
+                                                    </div>
+                                                <% } %>
+                                            </div>
+                                            <!-- </div> -->
+                                            <div id="manga-discussion" class="c-blog__heading style-2 font-heading">
+                                                <i class="ion-ios-star"></i> <h4>THẢO LUẬN</h4></div>
+                                            <div class="manga-discussion wrapper">
+                                                <div id="comments" class="comments-area">
+                                                    <div id="respond" class="comment-respond">
+                                                        <div class="fb-comments" data-href="<%= process.env.DOMAIN %>/truyen-tranh/<%= story.slug %>.<%= story._id%>" data-width="" data-numposts="5"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <related-manga></related-manga>
+                                    </div>
+                                </div>
+                                <%- include('includes/sidebar') -%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('includes/footer') -%>
+    </div>
+    <!-- Modal -->
+    <%- include('includes/popup-session') -%>
+</div>
+
+
+<div class="align-items-center d-flex go-to-top justify-content-center active">
+    <i class="icon ion-md-arrow-up"></i>
+</div>
+
+<%- include('includes/script-core') -%>
+
+</body>
+</html>

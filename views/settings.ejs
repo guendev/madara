@@ -1,0 +1,76 @@
+<html lang="en-US">
+
+<%- include(
+        'includes/head',
+            {
+                title: 'Cá Nhân Hoá',
+                description: 'Đọc truyện tranh đam mỹ online - Truyện gì cũng có',
+                seo_image: process.env.DOMAIN + '/images/share.jpg',
+                showAds: false
+            }
+        );
+-%>
+
+
+<body class="page <%= lightTheme ? '' : 'text-ui-light' %>">
+<div id="app" class="wrap">
+    <div class="body-wrap">
+        <%- include('includes/header') -%>
+        <div class="site-content">
+            <div class="c-page-content style-2">
+                <div class="content-area">
+                    <div class="container">
+                        <div class="row ">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="main-col-inner">
+                                    <div id="post-5" class="c-blog-post post-5 page type-page status-publish hentry">
+                                        <div class="entry-header">
+                                            <div class="entry-header_wrap">
+                                                <div class="entry-title">
+                                                    <h1 class="item-title h2">Cài Đặt</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="entry-content">
+                                            <div class="entry-content_wrap">
+                                                <div class="row settings-page">
+                                                    <div class="col-md-3 col-sm-3">
+                                                        <tab-bar></tab-bar>
+                                                    </div>
+                                                    <div class="col-md-9 col-sm-9">
+                                                        <div class="tabs-content-wrap">
+                                                            <div class="tab-content">
+                                                                <div class="tab-pane active">
+                                                                    <router-view user="<%= JSON.stringify(user) %>"></router-view>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('includes/footer') -%>
+    </div>
+    <!-- Modal -->
+    <%- include('includes/popup-session') -%>
+</div>
+
+<div class="align-items-center d-flex go-to-top justify-content-center active">
+    <i class="icon ion-md-arrow-up"></i>
+</div>
+
+
+<%- include('includes/script-core') -%>
+
+</body>
+</html>

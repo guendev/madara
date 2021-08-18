@@ -1,0 +1,122 @@
+<div class="c-sidebar c-top-sidebar home-sidebar">
+    <div class="container c-container">
+        <div class="row c-row">
+            <div class="widget col-12 col-md-12 default  no-icon heading-style-1 manga-widget widget-manga-slider">
+                <div class="widget__inner manga-widget widget-manga-slider__inner c-widget-wrap">
+                    <div class="widget-content">
+                        <div class="manga-slider style-2">
+                            <div class="slider__container" role="toolbar" show="2">
+                                <div class="slider__item">
+                                    <div class="slider__thumb">
+                                        <div class="slider__thumb_item">
+                                            <a href="javascript:void(0)" tabindex="-1">
+                                                <img width="642" height="320"  src="/images/banner/01.jpeg" alt="">
+                                                <div class="slider-overlay"></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="slider__content">
+                                        <div class="slider__content_item">
+                                            <div class="post-title font-title">
+                                                <h4>
+                                                    <a href="javascript:void(0)" tabindex="-1">
+                                                        Sắp Ra Mắt
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider__item">
+                                    <div class="slider__thumb">
+                                        <div class="slider__thumb_item">
+                                            <a href="/truyen-tranh/quy-tac-nuoi-soi.63" tabindex="-1">
+                                                <img width="642" height="320" src="/images/banner/02.jpeg">
+                                                <div class="slider-overlay"></div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="slider__content">
+                                        <div class="slider__content_item">
+                                            <div class="post-title font-title">
+                                                <h4>
+                                                    <a href="/truyen-tranh/quy-tac-nuoi-soi.63" tabindex="-1">Quy Tắc Nuôi Sói</a>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="widget col-12 col-md-12   default  heading-style-2 manga-widget widget-manga-popular-slider">
+                <div class="widget__inner manga-widget widget-manga-popular-slider__inner c-widget-wrap">
+                    <div class="popular-slider style-1" data-autoplay="0" data-style="style-1" data-count="4">
+                        <div class="c-blog__heading style-2 font-heading"><h4>
+                                <i class="icon ion-md-flash"></i>TOP THỊNH HÀNH</h4>
+                        </div>
+                        <div class="widget-content">
+                            <div class="slider__container" role="toolbar" id="top-views-slide" show="4">
+                                <% for (let item of stories) { %>
+                                    <% let {story, chapters} = item %>
+                                    <div class="slider__item">
+                                        <%- include('../schema/story', { story }) -%>
+                                        <div class="item__wrap ">
+                                            <div class="slider__thumb">
+                                                <div class="slider__thumb_item c-image-hover">
+                                                    <a href="/truyen-tranh/<%= story.slug %>.<%= story._id %>"
+                                                       tabindex="0">
+                                                        <img width="125" height="180"
+                                                             data-src="<%= webAssets(story.avatar) %>"
+                                                             data-srcset="<%= webAssets(story.avatar) %> 125w, <%= webAssets(story.avatar) %> 193w"
+                                                             data-sizes="(max-width: 125px) 100vw, 125px"
+                                                             class="img-responsive effect-fade lazyload"
+                                                             src="https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-550105-125x180.jpg"
+                                                             style="padding-top:180px;"
+                                                             alt="wallhaven-550105"
+                                                             sizes="(max-width: 125px) 100vw, 125px"
+                                                             srcset="<%= webAssets(story.avatar) %> 125w, <%= webAssets(story.avatar) %> 193w"
+                                                        >
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="slider__content">
+                                                <div class="slider__content_item">
+                                                    <div class="post-title font-title">
+                                                        <h4>
+                                                            <a href="/truyen-tranh/<%= story.slug %>.<%= story._id %>"
+                                                               tabindex="0">
+                                                                <%= story.title %>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="post-on font-meta">
+                                                        <span>
+                                                            <%=  moment(story.updatedAt).locale('vi').format('ll') %>
+                                                        </span>
+                                                    </div>
+                                                    <div class="chapter-item ">
+                                                        <% for (let chapter of chapters) { %>
+                                                            <span class="chapter ">
+                                                                <a href="/truyen-tranh/<%= story.slug %>.<%= story._id %>/<%= chapter.slug %>.<%= chapter._id %>/">
+                                                                    <%= chapter.name %>
+                                                                </a>
+                                                            </span>
+                                                        <% } %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

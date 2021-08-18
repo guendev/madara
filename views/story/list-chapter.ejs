@@ -1,0 +1,27 @@
+<div class="page-content-listing single-page">
+    <div class="listing-chapters_wrap cols-1">
+        <ul class="main version-chap no-volumn">
+            <% for (let chapter of chapters) {%>
+                <li class="wp-manga-chapter <%= chapter.avatar ? '_has_avatar' : '' %>">
+                    <a href="/truyen-tranh/<%= story.slug %>.<%= story._id %>/<%= chapter.slug %>.<%= chapter._id %>">
+                        <% if (chapter.avatar) {%>
+                            <div class="chapter-avatar">
+                                <img src="<%= webAssets(chapter.avatar) %>" alt="<%= chapter.name %>">
+                            </div>
+                        <%} %>
+                        <span class="chapter-name"><%= chapter.name %><%= chapter.nameExtend ? ' - ' + chapter.nameExtend : '' %></span>
+                    </a>
+                    <span class="chapter-release-date">
+                        <% if (Date.now() < chapter.createdAt + 259200000) {%>
+                            <span class="c-new-tag">
+                                <img src="/images/new.gif"  alt=""/>
+                            </span>
+                        <%} else {%>
+                                <i><%= moment(chapter.createdAt).locale('vi').format('ll') %></i>
+                        <%}%>
+                </span>
+                </li>
+            <%} %>
+        </ul>
+    </div>
+</div>

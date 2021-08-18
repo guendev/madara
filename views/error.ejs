@@ -1,0 +1,38 @@
+<html lang="en-US">
+
+<%- include(
+        'includes/head',
+        {
+            title: 'Không Tìm Thấy Trang',
+            description: 'Đọc truyện tranh đam mỹ online - Truyện gì cũng có',
+            seo_image: process.env.DOMAIN + '/images/share.jpg',
+            showAds: true
+        }
+    );
+-%>
+
+
+<body class="page <%= lightTheme ? '' : 'text-ui-light' %>">
+<div id="app" class="wrap">
+    <div class="body-wrap">
+        <%- include('includes/header') -%>
+        <div class="site-content">
+            <div class="error-404-page">
+                <img src="/images/404.jpeg" alt="">
+            </div>
+        </div>
+        <%- include('includes/footer') -%>
+    </div>
+    <!-- Modal -->
+    <%- include('includes/popup-session') -%>
+</div>
+
+<div class="align-items-center d-flex go-to-top justify-content-center active">
+    <i class="icon ion-md-arrow-up"></i>
+</div>
+
+
+<%- include('includes/script-core') -%>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<div class="sidebar-col col-md-4 col-sm-4">
+    <div id="main-sidebar" class="main-sidebar" role="complementary">
+        <div class="row">
+            <div id="manga-search-4"
+                 class="widget col-12 col-md-12   default  no-icon heading-style-1 manga-widget widget-manga-search">
+                <div class="widget__inner manga-widget widget-manga-search__inner c-widget-wrap">
+                    <div class="widget-heading font-nav">
+                        <h5 class="heading">FANPAGE</h5>
+                    </div>
+                    <div class="widget-content">
+                        <div
+                                class="fb-page"
+                                data-href="<%= process.env.FANPAGE %>"
+                                data-tabs=""
+                                data-width=""
+                                data-height=""
+                                data-small-header="false"
+                                data-adapt-container-width="true"
+                                data-hide-cover="false"
+                                data-show-facepile="true"
+                        >
+                            <blockquote
+                                    cite="<%= process.env.FANPAGE %>"
+                                    class="fb-xfbml-parse-ignore"
+                            >
+                                <a href="<%= process.env.FANPAGE %>">
+                                    <%= process.env.APP %>
+                                </a>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="manga-recent-4"
+                 class="widget col-xs-12 col-md-12   bordered  no-icon heading-style-1 c-popular manga-widget widget-manga-recent">
+                <div class="widget__inner c-popular manga-widget widget-manga-recent__inner c-widget-wrap">
+                    <div class="c-widget-content style-1 with-button">
+                        <div class="widget-heading font-nav"><h5 class="heading">TOP THỊNH HHÀNH</h5></div>
+                        <div class="widget-content">
+                            <% for (let item of topTrending) {%>
+                            <% let {story, chapters} = item %>
+                                <%- include('../schema/story', { story }) -%>
+                                <div class="popular-item-wrap">
+                                    <div class="popular-img widget-thumbnail c-image-hover">
+                                        <a title="<%= story.title %>" href="/truyen-tranh/<%= story.slug %>.<%= story._id %>">
+                                            <img width="75" height="106"
+                                                 data-src="<%= webAssets(story.avatar) %>"
+                                                 class="img-responsive effect-fade lazyload"
+                                                 src="https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-550618-75x106.jpg"
+                                                 style="padding-top:106px;"
+                                                 alt="wallhaven-550618"
+                                            >
+                                        </a>
+                                    </div>
+                                    <div class="popular-content">
+                                        <h5 class="widget-title">
+                                            <a title="<%= story.title %>" href="/truyen-tranh/<%= story.slug %>.<%= story._id %>">
+                                                <%= story.title %>
+                                            </a>
+                                        </h5>
+                                        <div class="list-chapter">
+                                            <% for (let chapter of chapters) {%>
+                                                <div class="chapter-item">
+						                        <span class="chapter font-meta">
+                                                    <a href="https://live.mangabooth.com/manga/massa-consectetur-mattis/episode-122/" class="btn-link">
+                                                        <%= chapter.name %>
+                                                    </a>
+                                                </span>
+                                                    <span class="post-on font-meta">
+                                                        <%= moment(chapter.createdAt).locale('vi').format('ll') %>
+                                                    </span>
+                                                </div>
+                                            <%} %>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            <%} %>
+
+                            <span class="c-wg-button-wrap">
+                                <a class="widget-view-more" href="/truyen-tranh">
+                                    Xem Thêm
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

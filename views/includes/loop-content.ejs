@@ -1,0 +1,72 @@
+<div id="loop-content" class="page-content-listing item-default">
+    <% for (let i = 0; i < stories.length / 2 ; i++) {%>
+        <div class="page-listing-item">
+            <div class="row row-eq-height">
+                <% for (let item of stories.slice(i * 2, i * 2 + 2)) {%>
+                    <% let { story, chapters } = item %>
+                    <%- include('../schema/story', { story }) -%>
+                    <div class="col-12 col-md-6 badge-pos-1">
+                        <div class="page-item-detail text">
+                            <div class="item-thumb hover-details c-image-hover" >
+                                <a href="/truyen-tranh/<%= story.slug %>.<%= story._id %>"
+                                   title="<%= story.title %>"
+                                >
+                                    <% const avatar = webAssets(story.avatar) %>
+                                    <img width="110" height="150"
+                                         src="<%= avatar %>"
+                                         class="img-responsive effect-fade"
+                                         alt="wallhaven-550105"
+                                    />
+                                </a>
+                            </div>
+                            <div class="item-summary">
+                                <div class="post-title font-title">
+                                    <h3 class="h5">
+                                        <% if (story.badge) {%>
+                                            <span class="manga-title-badges <%= story.badge.toLowerCase() %>">
+                                                <%= story.badge %>
+                                            </span>
+                                        <%} %>
+                                        <a href="/truyen-tranh/<%= story.slug %>.<%= story._id %>">
+                                            <%= story.title %>
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div class="meta-item rating">
+                                    <div class="post-total-rating allow_vote">
+                                        <i class="ion-ios-star ratings_stars rating_current"></i>
+                                        <i class="ion-ios-star ratings_stars rating_current"></i>
+                                        <i class="ion-ios-star ratings_stars rating_current"></i>
+                                        <i class="ion-ios-star ratings_stars rating_current"></i>
+                                        <i class="ion-ios-star-half ratings_stars rating_current_half"></i>
+                                        <span class="score font-meta total_votes">4.3</span>
+                                    </div>
+                                </div>
+                                <div class="list-chapter">
+                                    <% for (let chapter of chapters) { %>
+                                        <div class="chapter-item ">
+                                        <span class="chapter font-meta">
+                                            <a href="/truyen-tranh/<%= story.slug %>.<%= story._id %>/<%= chapter.slug %>.<%= chapter._id %>" class="btn-link">
+                                                <%= chapter.name %>
+                                            </a>
+                                        </span>
+                                            <span class="post-on font-meta">
+                                                <% if (Date.now() < chapter.createdAt + 259200000) {%>
+                                                    <span class="c-new-tag">
+                                                        <img src="/images/new.gif"  alt=""/>
+                                                    </span>
+                                                <%} else {%>
+                                                    <span><%= moment(chapter.createdAt).locale('vi').format('ll') %></span>
+                                                <%}%>
+                                            </span>
+                                        </div>
+                                    <%} %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <%}%>
+            </div>
+        </div>
+    <%}%>
+</div>

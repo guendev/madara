@@ -1,0 +1,39 @@
+type Query {
+    "Studio"
+    getCategories: [Category]
+
+    "Studio - lấy nội dung private"
+    myStories(order: String! sort: Int! page: Int! limit: Int!): [Story]
+    myStory(id: Float!): Story
+    myChapter(id: Float!): Chapter
+    countStories: Int
+    searchMyStories(keyword: String! size: Int!): [Story]
+    myChapters(id: Float!): [Chapter]
+
+    "User"
+    me: User
+
+    "Queries App Front End"
+    getStoriesWithChapter(order: String!, page: Int!, limit: Int!): [StoryAndChapter]
+    getStoriesWithChapterByCategory(id: Float! order: String!, page: Int!, limit: Int!): [StoryAndChapter]
+    quickSearch(keyword: String!, size: Int!): [Story]
+    searchStoriesWithChapter(keyword: String!, page: Int!, limit: Int): [StoryAndChapter]
+    getStoriesRelated: [Story]
+}
+
+type Mutation {
+    "Login action"
+    signupUser(name: String!, email: String!, password: String!): Token!
+    signinUser(email: String!, password: String!): Token!
+
+    "UserSettings"
+    userSettings(key: String!, value: String!): User
+    changePassword(oldPass: String!, newPass: String): User
+
+    "Studio"
+    publishStory(input: StoryForm!): Story
+    publishChapter(input: ChapterForm): Chapter
+    deleteStory(_id: Float!): Story
+    deleteChapter(_id: Float!): Chapter
+    sortMyChapters(_id: Float! ids: [Float!]): Boolean
+}

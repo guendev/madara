@@ -1,0 +1,51 @@
+type Story {
+    _id: Float
+    title: String
+    slug: String
+    avatar: String
+    source: String
+    adsense: Boolean
+    content: String
+    user: User
+    countChapter: Int
+    rating: Float
+    views: Float
+    categories: [Category]
+    updatedAt: Float
+    createdAt: Float
+
+    otherTitle: String
+    author: String
+    team: String
+    badge: String
+}
+
+type Chapter {
+    _id: Float
+    name: String
+    nameExtend: String
+    avatar: String
+    source: String
+    slug: String
+    story: Story
+    views: Float
+    order: Int
+    content: Object
+    createdAt: Float
+    postActive: Int
+    publishTime: Float
+    note: String
+}
+
+type Category {
+    _id: Float
+    name: String
+    slug: String
+}
+
+scalar Object
+
+type StoryAndChapter {
+    story: Story
+    chapters: [Chapter]
+}

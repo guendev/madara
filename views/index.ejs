@@ -1,0 +1,67 @@
+<html lang="en-US">
+
+<%- include('includes/head',
+        {
+            title: 'Trang Chủ',
+            description: 'Đọc truyện tranh đam mỹ online - Truyện gì cũng có',
+            seo_image: process.env.DOMAIN + '/images/share.jpg',
+            showAds: false
+        }
+    );
+-%>
+
+
+<body class="page <%= lightTheme ? '' : 'text-ui-light' %>">
+<div id="app" class="wrap">
+    <div class="body-wrap">
+
+        <%- include('includes/header') -%>
+
+        <%- include('includes/top-sidebar', { stories: topViews }) -%>
+
+        <div class="site-content">
+
+            <div class="c-page-content style-1">
+                <div class="content-area" style="margin-top: 50px">
+                    <div class="container">
+                        <div class="row ">
+                            <div class="main-col col-md-8 col-sm-8">
+                                <div class="main-col-inner c-page">
+                                    <div class="c-blog__heading style-2 font-heading ">
+                                        <h1 class="h4">
+                                            <i class="ion-ios-star"></i>
+                                            CẬP NHẬT MỚI
+                                        </h1>
+                                    </div>
+
+                                    <div class="c-blog-listing c-page__content manga_content">
+                                        <div class="c-blog__inner">
+                                            <div class="c-blog__content">
+                                                <%- include('includes/loop-content', { stories }) -%>
+                                                <loop-infinite :endpoint="'/api/stories'" order="updatedAt"></loop-infinite>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%- include('includes/sidebar') -%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('includes/footer') -%>
+    </div>
+    <!-- Modal -->
+    <%- include('includes/popup-session') -%>
+</div>
+
+<div class="align-items-center d-flex go-to-top justify-content-center active">
+    <i class="icon ion-md-arrow-up"></i>
+</div>
+
+
+<%- include('includes/script-core') -%>
+
+</body>
+</html>

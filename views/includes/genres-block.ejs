@@ -1,0 +1,49 @@
+<div class="c-breadcrumb-wrapper"
+>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="c-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="/">
+                                Trang Chủ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= breadcrumb.link %>">
+                                <%= breadcrumb.name %>
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+
+
+                <div class="c-genres-block archive-page">
+                    <div class="genres_wrap">
+
+                        <div class="c-blog__heading style-3 font-heading">
+                            <h5>THỂ LOẠI</h5>
+                        </div>
+                        <a class="btn btn-genres icon ion-md-arrow-dropdown float-right"></a>
+                        <div class="genres__collapse" style="display: none;">
+                            <div class="row genres">
+                                <ul class="list-unstyled">
+                                    <% for (let category of categories) { %>
+                                        <li class="col-6 col-sm-4 col-md-2">
+                                            <a href="/the-loai/<%= category.slug %>.<%= category._id %>">
+                                                <%= category.name %>
+                                            </a>
+                                        </li>
+                                    <% } %>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

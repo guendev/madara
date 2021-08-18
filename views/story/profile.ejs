@@ -1,0 +1,221 @@
+<div class="profile-manga summary-layout-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12">
+                <div class="c-breadcrumb-wrapper">
+                    <div class="c-breadcrumb">
+                        <ol class="breadcrumb" typeof="BreadcrumbList" vocab="http://schema.org/">
+                            <li property="itemListElement" typeof="ListItem">
+                                <a href="/" property="item" typeof="WebPage">
+                                    <span property="name">Trang Chủ</span>
+                                </a>
+                                <meta content="1" property="position">
+                            </li>
+                            <li property="itemListElement" typeof="ListItem">
+                                <a href="/truyen-tranh">
+                                    <span property="name">Truyện Tranh</span>
+                                </a>
+                                <meta content="2" property="position">
+                            </li>
+                            <li property="itemListElement" typeof="ListItem">
+                                <a href="/truyen-tranh/<%= story.slug %>.<%= story._id %>">
+                                    <span  property="name"><%= story.title %></span>
+                                </a>
+                                <meta content="3" property="position">
+                            </li>
+
+
+                        </ol>
+                    </div>
+
+                </div>
+
+                <div class="post-title">
+                    <% if (story.badge) {%>
+                        <span class="manga-title-badges <%= story.badge.toLowerCase() %>">
+                            <%= story.badge %>
+                        </span>
+                    <%} %>
+                    <h1><%= story.title %></h1>
+                </div>
+                <div class="tab-summary ">
+                    <div class="summary_image">
+                        <a href="/truyen-tranh/<%= story.slug %>.<%= story._id %>">
+                            <img width="193" height="278"
+                                 data-src="<%= webAssets(story.avatar) %>"
+                                 data-srcset="<%= webAssets(story.avatar) %> 193w, <%= webAssets(story.avatar) %> 125w"
+                                 data-sizes="(max-width: 193px) 100vw, 193px"
+                                 class="img-responsive effect-fade lazyload"
+                                 src="https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-550105-193x278.jpg"
+                                 style="padding-top:278px;"
+                                 alt="wallhaven-550105"
+                                 sizes="(max-width: 193px) 100vw, 193px"
+                                 srcset="<%= webAssets(story.avatar) %> 193w, <%= webAssets(story.avatar) %> 125w">
+                        </a>
+                    </div>
+                    <div class="summary_content_wrap">
+                        <div class="summary_content">
+                            <div class="post-content">
+                                <div class="loader-inner ball-pulse">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div class="post-rating">
+                                    <div class="post-total-rating allow_vote"><i
+                                                class="ion-ios-star ratings_stars rating_current"></i><i
+                                                class="ion-ios-star ratings_stars rating_current"></i><i
+                                                class="ion-ios-star ratings_stars rating_current"></i><i
+                                                class="ion-ios-star ratings_stars rating_current"></i><i
+                                                class="ion-ios-star-half ratings_stars rating_current_half"></i><span
+                                                class="score font-meta total_votes">4.3</span></div>
+                                    <div class="user-rating allow_vote"><i
+                                                class="ion-ios-star-outline ratings_stars"></i><i
+                                                class="ion-ios-star-outline ratings_stars"></i><i
+                                                class="ion-ios-star-outline ratings_stars"></i><i
+                                                class="ion-ios-star-outline ratings_stars"></i><i
+                                                class="ion-ios-star-outline ratings_stars"></i><span
+                                                class="score font-meta total_votes">Your Rating</span>
+                                    </div>
+                                    <input type="hidden" class="rating-post-id" value="454"></div>
+
+                                <div class="post-content_item">
+                                    <div class="summary-heading">
+                                        <h5>Đánh Giá</h5>
+                                    </div>
+                                    <div class="summary-content vote-details">
+                                        4.3 / 5 Tổng đánh giá
+                                    </div>
+                                </div>
+                                <div class="post-content_item">
+                                    <div class="summary-heading">
+                                        <h5>Lượt Xem</h5>
+                                    </div>
+                                    <div class="summary-content">
+                                        <i class="icon ion-md-eye"></i>
+                                        <%= story.views %>
+                                        Lượt Xem
+                                    </div>
+                                </div>
+
+                                <div class="post-content_item">
+                                    <div class="summary-heading">
+                                        <h5>Tên Khác</h5>
+                                    </div>
+                                    <div class="summary-content">
+                                        <%= story.otherTitle ? story.otherTitle : 'Đang Cập Nhật' %>
+                                    </div>
+                                </div>
+
+
+                                <div class="post-content_item">
+                                    <div class="summary-heading">
+                                        <h5>Tác Giả </h5>
+                                    </div>
+                                    <div class="summary-content">
+                                        <div class="author-content">
+                                            <a href="javascript:void(0)" rel="tag">
+                                                <%= story.author ? story.author : 'Đang Cập Nhật' %>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="post-content_item">
+                                    <div class="summary-heading">
+                                        <h5>Nhóm Dịch</h5>
+                                    </div>
+                                    <div class="summary-content">
+                                        <div class="tags-content">
+                                            <a href="javascript:void(0)" rel="tag">
+                                                <%= story.team ? story.team : 'Đang Cập Nhật' %>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <% if (story.categories.length) {%>
+                                    <div class="post-content_item">
+                                        <div class="summary-heading">
+                                            <h5>Thể Loại </h5>
+                                        </div>
+                                        <div class="summary-content">
+                                            <div class="genres-content">
+                                                <% for (let category of story.categories) {%>
+                                                    <a href="/the-loai/<%= category.slug %>.<%= category._id %>" rel="tag">
+                                                        <%= category.name %>
+                                                    </a>
+                                                <%} %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <%} %>
+
+
+                            </div>
+                            <div class="post-status">
+
+                                <div class="post-content_item">
+                                    <div class="summary-heading">
+                                        <h5>Phát Hành</h5>
+                                    </div>
+                                    <div class="summary-content">
+                                        <a href="https://live.mangabooth.com/manga-release/2015/"
+                                           rel="tag">2021</a></div>
+                                </div>
+                                <div class="post-content_item">
+                                    <div class="summary-heading">
+                                        <h5>Trạng Thái</h5>
+                                    </div>
+                                    <div class="summary-content">
+                                        Tiếp Tục
+                                    </div>
+                                </div>
+                                <div class="manga-action">
+                                    <div class="count-comment">
+                                        <div class="action_icon">
+                                            <a href="#manga-discussion">
+                                                <i class="icon ion-md-chatbubbles"></i>
+                                            </a>
+                                        </div>
+                                        <div class="action_detail">
+                                            <span class="disqus-comment-count">
+                                                Bình Luận
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="add-bookmark">
+                                        <div class="action_icon">
+                                            <a href="javascript:void(0)" title="Bookmark">
+                                                <i class="icon ion-ios-bookmark"></i>
+                                            </a>
+                                        </div>
+                                        <div class="action_detail"><span>Theo Dõi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <% if (chapters.length) {%>
+                                <div id="init-links" class="nav-links">
+                                    <% const firstChapter = chapters[chapters.length - 1] %>
+                                    <a href="/truyen-tranh/<%= story.slug %>.<%= story._id %>/<%= firstChapter.slug %>.<%= firstChapter._id %>" class="c-btn c-btn_style-1">
+                                        Chương Đầu
+                                    </a>
+                                    <% if (chapters.length > 1) {%>
+                                        <% const lastChapter = chapters[0] %>
+                                        <a href="/truyen-tranh/<%= story.slug %>.<%= story._id %>/<%= lastChapter.slug %>.<%= lastChapter._id %>" class="c-btn c-btn_style-1">
+                                            Chương Cuối
+                                        </a>
+                                    <%} %>
+                                </div>
+                            <%} %>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

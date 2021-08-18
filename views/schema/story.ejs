@@ -1,0 +1,30 @@
+<% const avatar = webAssets(story.avatar) %>
+<script type="application/ld+json">{
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": "<%= process.env.DOMAIN %>/truyen-tranh/<%= story.slug %>.<%= story._id %>",
+        "headline": "<%= story.title %>",
+        "datePublished": "2019-03-21T06:56:44+07:00",
+        "dateModified": "2021-07-30T03:33:47+07:00",
+        "description": "❶✔️ Đọc truyện tranh <%= story.title %> Tiếng Việt bản dịch Full mới nhất, ảnh đẹp chất lượng cao, cập nhật nhanh và sớm nhất tại <%= process.env.APP %>",
+        "author": {
+            "@type": "Person",
+            "name": "<%= story.author || process.env.APP %>"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "<%= process.env.DOMAIN + '/images/favicon/favicon-180-precomposed.png' %>",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "<%= avatar %>",
+                "width": 150,
+                "height": 30
+            }
+        },
+        "image": {
+            "@type": "ImageObject",
+            "url": "<%= avatar %>g",
+            "height": 904,
+            "width": 696
+        }
+    }</script>

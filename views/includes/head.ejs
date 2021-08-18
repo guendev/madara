@@ -1,0 +1,71 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Meta Seo-->
+    <title><%= title %> | <%= process.env.APP %></title>
+    <meta name="description" content="<%= description %>">
+    <meta name="generator" content="@dnstylish">
+
+    <meta property="og:image" content="<%= seo_image %>">
+    <meta property="og:site_name" content="<%= title %> | <%= process.env.APP %>">
+    <meta property="fb:app_id" content="">
+    <meta property="og:title" content="<%= title %> | <%= process.env.APP %>">
+    <meta property="og:description" content="<%= description %>">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@<%= title %> | <%= process.env.APP %>">
+    <meta name="twitter:title" content="<%= title %> | <%= process.env.APP %>">
+    <meta name="twitter:description" content="<%= description %>">
+    <meta name="twitter:image" content="<%= seo_image %>">
+    <meta data-hid="fb:app_id" property="fb:app_id" content="155915046224033">
+
+    <!-- favicon -->
+
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico">
+    <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/images/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/favicon-152-precomposed.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/favicon-144-precomposed.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/favicon-120-precomposed.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/favicon-114-precomposed.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/favicon-180-precomposed.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/favicon-72-precomposed.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/favicon-57.png">
+    <link rel="icon" sizes="32x32" href="/images/favicon/favicon-32.png">
+    <link rel="icon" sizes="192x192" href="/images/favicon/favicon-192.png">
+    <link rel="manifest" href="/images/favicon/manifest.json">
+
+
+    <link rel="stylesheet" id="bootstrap-css" href="/css/bootstrap.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="slick-css" href="/js/slick/slick.css" type="text/css" media="all">
+    <link rel="stylesheet" id="ionicons-css" href="/css/ionicons.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="slick-theme-css" href="/js/slick/slick-theme.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/loaders.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="madara-css-css" href="/css/style.min.css" type="text/css" media="all">
+
+
+    <script type="text/javascript" src="/js/lazysizes/lazysizes.min.js" id="lazysizes-js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" id="jquery-core-js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,500,600,700|Open+Sans:regular,600,800&amp;subset=vietnamese">
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0&appId=155915046224033&autoLogAppEvents=1" nonce="8n6FtJjM"></script>
+
+    <script>window._user = '<%= user ? user._id : '' %>'</script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130681925-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-130681925-1');
+    </script>
+
+    <% if (showAds) {%>
+        <!-- Google Adsense -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4136501395952974" crossorigin="anonymous"></script>
+    <%} %>
+
+</head>

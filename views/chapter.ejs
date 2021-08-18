@@ -1,0 +1,134 @@
+<html lang="en-US">
+
+<%- include(
+'includes/head',
+{
+title: chapter.name + ' | ' +story.title,
+description: '❶❶✅ Đọc truyện tranh ' + story.title + ' ' + chapter.name + ' bản dịch Full mới nhất, ảnh đẹp chất lượng cao tại ' + process.env.DOMAIN,
+seo_image: webAssets(story.avatar),
+showAds: story.adsense
+}
+);
+-%>
+
+
+<body class="manga-page page reading-manga <%= lightTheme ? '' : 'text-ui-light' %>">
+<div id="app" class="wrap">
+    <div class="body-wrap">
+
+        <%- include('includes/header') -%>
+        <div class="site-content">
+            <div class="c-page-content style-1 reading-content-wrap chapter-type-manga">
+                <div class="content-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="main-col col-md-12 col-sm-12 sidebar-hidden">
+                                <h1 id="chapter-heading">
+                                    <%= story.title ;%>
+                                    - <%= chapter.name ;%><%= chapter.nameExtend ? " - " + chapter.nameExtend : "" ;%>
+                                </h1>
+                                <div class="main-col-inner">
+                                    <div class="c-blog-post">
+                                        <%- include('chapter/entry-header') -%>
+                                        <div class="entry-content">
+                                            <div class="entry-content_wrap">
+                                                <div class="read-container">
+                                                    <% if (story.adsense) { %>
+                                                        <%- include('includes/ads') -%>
+                                                    <% } %>
+                                                        <div class="chapter-note">
+                                                            <%= chapter.note || 'Nhóm Mới ComeBack đừng dùng chặn quảng cáo...tội lắm!'.toUpperCase() %>
+                                                        </div>
+                                                    <div class="reading-content">
+                                                        <% for (let i = 0; i < chapter.content.length; i++) { %>
+                                                            <div class="page-break no-gaps">
+                                                                <img
+                                                                        data-src="<%= chapter.content[i].content ;%>"
+                                                                        src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                                                                        alt="<%= chapter.name ;%>"
+                                                                        class="chapter-img img-responsive effect-fade lazyload w-100"
+                                                                >
+                                                            </div>
+                                                            <% if (story.adsense && [15, 50, 75].includes(i)) { %>
+                                                                <%- include('includes/ads') -%>
+                                                            <% } %>
+                                                        <% } %>
+                                                    </div>
+                                                    <% if (story.adsense) { %>
+                                                        <%- include('includes/ads') -%>
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <%- include('chapter/entry-header') -%>
+                                    </div>
+                                    <div class="row">
+                                        <div class="main-col col-12 col-sm-8 col-md-8 col-lg-8">
+                                            <div id="fb-comment">
+                                                <div id="manga-discussion" class="c-blog__heading style-2 font-heading">
+                                                    <i class="ion-ios-star"></i> <h4>THẢO LUẬN</h4></div>
+                                                <div class="manga-discussion wrapper">
+                                                    <div id="comments" class="comments-area">
+                                                        <div id="respond" class="comment-respond">
+                                                            <div class="fb-comments"
+                                                                 data-href="<%= process.env.DOMAIN ;%>/truyen-tranh/<%= story.slug ;%>.<%= story._id ;%>"
+                                                                 data-width="" data-numposts="5"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <related-manga></related-manga>
+                                        </div>
+                                        <%- include('includes/sidebar') -%>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('includes/footer') -%>
+    </div>
+    <!-- Modal -->
+    <%- include('includes/popup-session') -%>
+</div>
+
+<div class="align-items-center d-flex go-to-top justify-content-center active">
+    <i class="icon ion-md-arrow-up"></i>
+</div>
+
+<%- include('includes/script-core') -%>
+
+<script>
+  $(document).ready(() => {
+    const story = '/truyen-tranh/<%= story.slug ;%>.<%= story._id ;%>/'
+    document.querySelectorAll('.single-chapter-select').forEach((element) => {
+      element.addEventListener('change', ({ target }) => {
+        const newChapter = target.options[target.selectedIndex].value
+        window.location.href = story + newChapter
+      })
+    })
+    document.querySelectorAll('.select-pagination .nav-links a').forEach((element) => {
+      element.addEventListener('click', (e) => {
+        e.preventDefault()
+        try {
+          let newChapter = {}
+          const chapters = document.querySelector('.single-chapter-select')
+          if (element.classList.contains('prev_page')) {
+            newChapter = chapters.options[chapters.selectedIndex + 1].value
+          } else {
+            newChapter = chapters.options[chapters.selectedIndex - 1].value
+          }
+          window.location.href = story + newChapter
+        } catch (e) {
+          // ko có chapter next-prev
+          window.location.href = story
+        }
+      })
+    })
+  })
+</script>
+
+</body>
+</html>

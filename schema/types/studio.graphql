@@ -1,0 +1,23 @@
+input StoryForm{
+    _id: Float
+    title: String!
+    otherTitle: String
+    author: String
+    team: String!
+    avatar: String!
+    content: String
+    adsense: Boolean
+    categories: [String]
+    badge: String
+}
+
+input ChapterForm {
+    _id: Float
+    story: Float!
+    name: String!
+    avatar: String
+    content: Object!
+    nameExtend: String
+    publishTime: Float
+    note: String
+}

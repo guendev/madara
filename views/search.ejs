@@ -1,0 +1,114 @@
+<html lang="en-US">
+
+<%- include(
+    'includes/head',
+            {
+                title: 'Tìm kiếm: ' + keyword ,
+                description: '❶❶✅ Đọc truyện tranh có tên '+ keyword +' bản dịch Full mới nhất, ảnh đẹp chất lượng cao tại ' + process.env.DOMAIN,
+                seo_image: process.env.DOMAIN + '/images/share.jpg',
+                showAds: true
+            }
+        );
+-%>
+
+
+<body class="page <%= lightTheme ? '' : 'text-ui-light' %>">
+<div id="app" class="wrap">
+    <div class="body-wrap">
+
+        <%- include('includes/header') -%>
+
+        <div class="site-content">
+            <%- include('includes/genres-block', { breadcrumb: { link: `/tim-kiem?keyword=` + keyword, name: 'Tìm Kiếm' } }) -%>
+            <div class="c-page-content style-1">
+                <div class="content-area">
+                    <div class="container">
+                        <div class="row ">
+                            <div class="main-col col-md-8 col-sm-8">
+
+                                <div class="ad c-ads custom-code body-top-ads"></div>
+
+                                <!-- container & no-sidebar-->
+                                <div class="main-col-inner">
+                                    <div class="c-page">
+                                        <div class="entry-header">
+                                            <div class="entry-header_wrap">
+                                                <div class="entry-title">
+                                                    <h1 class="item-title h4">
+                                                        Tìm Kiếm: <%= keyword %>
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="c-page__inner"> -->
+                                        <div class="c-page__content">
+                                            <div class="tab-wrap">
+                                                <div class="c-blog__heading style-2 font-heading">
+
+                                                    <div class="h4">
+                                                        <i class="icon ion-ios-star"></i>
+                                                        <%= count %> kết quả
+                                                    </div>
+
+                                                    <div class="c-nav-tabs">
+                                                        <span>Sắp Xếp Theo </span>
+                                                        <ul class="c-tabs-content">
+                                                            <li class="<%= order === 'updatedAt' || !order ? 'active' : '' %>">
+                                                                <a href="/tim-kiem?keyword=<%= keyword %>&order=updatedAt">
+                                                                    Mới Nhất
+                                                                </a>
+                                                            </li>
+                                                            <li class="<%= order === 'views' ? 'active' : '' %>">
+                                                                <a href="/tim-kiem?keyword=<%= keyword %>&order=views">
+                                                                    Lượt Xem
+                                                                </a>
+                                                            </li>
+                                                            <li class="<%= order === 'rating' ? 'active' : '' %>">
+                                                                <a href="/tim-kiem?keyword=<%= keyword %>&orde=rating">
+                                                                    Đánh Giá
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Tab panes -->
+                                            <div class="tab-content-wrap">
+                                                <% if (count) { %>
+                                                    <div role="tabpanel" class="c-tabs-item">
+                                                        <%- include('includes/loop-content', { stories }) -%>
+                                                        <search-infinite keyword="<%= keyword %>"></search-infinite>
+                                                    </div>
+                                                <% } else { %>
+                                                    <div class="no-chapter">
+                                                        <img src="/images/no-chapter.png" alt=""/>
+                                                    </div>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                        <!-- </div> -->
+                                    </div>
+                                    <!-- paging -->
+                                </div>
+                            </div>
+                            <%- include('includes/sidebar') -%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('includes/footer') -%>
+    </div>
+    <!-- Modal -->
+    <%- include('includes/popup-session') -%>
+</div>
+
+<div class="align-items-center d-flex go-to-top justify-content-center active">
+    <i class="icon ion-md-arrow-up"></i>
+</div>
+
+
+<%- include('includes/script-core') -%>
+
+</body>
+</html>
