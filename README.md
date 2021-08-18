@@ -7,8 +7,7 @@
 </p>
 
 ## Features
-
-- Laravel 7
+- Nodejs, NOSQL, VueJS, Graphql
 - Bootstrap 4 + Font Awesome 5
 - Login, register, email verification and password reset
 - Manga Info: Genre, Tags, Rank
