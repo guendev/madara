@@ -80,7 +80,9 @@ npm stop
 > You need to set up .env first before run project
 
 ## Ads
-> You need to set up .env first before run project
+- In [Head](https://github.com/dnstylish/madara/blob/5be43b2223578254fe76ab9184d50bac87919fa4/views/includes/head.ejs#L67)
+- Ads [Block](https://github.com/dnstylish/madara/blob/master/views/includes/ads.ejs)
+> You can turn off ads for per manga, page,...
 
 ## Scrapper Tool
 > Contact [dnstylish@gmail.com](mailto:someone@yoursite.com) if you need to help.
