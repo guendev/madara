@@ -87,6 +87,12 @@ To change watermark, please replace file watermark in [WatermarkLibrary](https:/
 - Ads [Block](https://github.com/dnstylish/madara/blob/master/views/includes/ads.ejs)
 > You can turn off ads for per manga, page,...
 
+## Studio: [Madara - Studio](https://github.com/dnstylish/madara-studio)
+- Front end user upload
+- Show/Hide Ads by Story
+- Chapter thumbnail, chapter scheduler
+- Crop Image, Auto upload and remove in CDN when create/update/delete
+
 ## Scrapper Tool
 > Contact [dnstylish@gmail.com](mailto:someone@yoursite.com) if you need to help.
 
