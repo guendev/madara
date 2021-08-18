@@ -79,6 +79,9 @@ npm stop
 ## .env
 > You need to set up .env first before run project
 
+## Ads
+> You need to set up .env first before run project
+
 ## Scrapper Tool
 > Contact [dnstylish@gmail.com](mailto:someone@yoursite.com) if you need to help.
 
