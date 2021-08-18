@@ -92,6 +92,7 @@ To change watermark, please replace file watermark in [WatermarkLibrary](https:/
 - Show/Hide Ads by Story
 - Chapter thumbnail, chapter scheduler
 - Crop Image, Auto upload and remove in CDN when create/update/delete
+- Role, permission
 
 ## Scrapper Tool
 > Contact [dnstylish@gmail.com](mailto:someone@yoursite.com) if you need to help.
