@@ -79,6 +79,9 @@ npm stop
 ## .env
 > You need to set up .env first before run project
 
+## Watermark
+To change watermark, please replace file watermark in [WatermarkLibrary](https://github.com/dnstylish/madara/tree/master/modules/image/lib)
+
 ## Ads
 - In [Head](https://github.com/dnstylish/madara/blob/5be43b2223578254fe76ab9184d50bac87919fa4/views/includes/head.ejs#L67)
 - Ads [Block](https://github.com/dnstylish/madara/blob/master/views/includes/ads.ejs)
