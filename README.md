@@ -28,8 +28,7 @@ https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubunt
 > You need to set up .env first. Example: [.env.example](https://github.com/dnstylish/madara/blob/master/.env.example)
 
 ## Storage - [BunnyCDN](https://bunny.net/)
-BunnyCDN is the best CDN I know. See why [Review](https://www.techradar.com/reviews/bunny-cdn)
-> You need to two Pull Zone
+BunnyCDN is the best CDN I know. See why: [Review](https://www.techradar.com/reviews/bunny-cdn)
 
 - ### Normal Pull Zone
     - Story avatar, chapter avatar, user avatar,..
