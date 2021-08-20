@@ -84,8 +84,8 @@ npm stop
 To change watermark, please replace files in `modules/image/lib`
 
 ## Ads
-- In [Head](https://github.com/dnstylish/madara/blob/5be43b2223578254fe76ab9184d50bac87919fa4/views/includes/head.ejs#L67)
-- Ads [Block](https://github.com/dnstylish/madara/blob/master/views/includes/ads.ejs)
+- Auto Ads `views/inclues/ads/auto.ejs`
+- Block `views/inclues/ads/block.ejs`
 > You can turn off ads for per manga, page,...
 
 ## Studio: [Madara - Studio](https://github.com/dnstylish/madara-studio)
@@ -185,7 +185,7 @@ function mongodb_dump
 mongodb_dump
 ```
 
-After running the scritp navigate to your Dropbox `Applications` folder and look for a folder named after the application you created during the installation process. The `books.tar.gz` file should be there already.
+After running the script navigate to your Dropbox `Applications` folder and look for a folder named after the application you created during the installation process. The `books.tar.gz` file should be there already.
 
 ### Setting a cronjob
 
