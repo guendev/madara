@@ -1,58 +1,41 @@
 <div class="c-sidebar c-top-sidebar home-sidebar">
     <div class="container c-container">
         <div class="row c-row">
-            <div class="widget col-12 col-md-12 default  no-icon heading-style-1 manga-widget widget-manga-slider">
-                <div class="widget__inner manga-widget widget-manga-slider__inner c-widget-wrap">
-                    <div class="widget-content">
-                        <div class="manga-slider style-2">
-                            <div class="slider__container" role="toolbar" show="2">
-                                <div class="slider__item">
-                                    <div class="slider__thumb">
-                                        <div class="slider__thumb_item">
-                                            <a href="javascript:void(0)" tabindex="-1">
-                                                <img width="642" height="320"  src="/images/banner/01.jpeg" alt="">
-                                                <div class="slider-overlay"></div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="slider__content">
-                                        <div class="slider__content_item">
-                                            <div class="post-title font-title">
-                                                <h4>
-                                                    <a href="javascript:void(0)" tabindex="-1">
-                                                        Update Soon
+            <% if(slider.length) {%>
+                <div class="widget col-12 col-md-12 default  no-icon heading-style-1 manga-widget widget-manga-slider">
+                    <div class="widget__inner manga-widget widget-manga-slider__inner c-widget-wrap">
+                        <div class="widget-content">
+                            <div class="manga-slider style-2">
+                                <div class="slider__container" role="toolbar" show="2">
+                                    <% for ( item of slider ) {%>
+                                        <div class="slider__item">
+                                            <div class="slider__thumb">
+                                                <div class="slider__thumb_item">
+                                                    <a href="<%= item.href %>" tabindex="-1" target="_blank">
+                                                        <img width="642" height="320"  src="<%= item.src %>" alt="">
+                                                        <div class="slider-overlay"></div>
                                                     </a>
-                                                </h4>
+                                                </div>
+                                            </div>
+                                            <div class="slider__content">
+                                                <div class="slider__content_item">
+                                                    <div class="post-title font-title">
+                                                        <h4>
+                                                            <a href="<%= item.href %>" tabindex="-1">
+                                                                <%= item.text %>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="slider__item">
-                                    <div class="slider__thumb">
-                                        <div class="slider__thumb_item">
-                                            <a href="javascript:void(0)" tabindex="-1">
-                                                <img width="642" height="320"  src="/images/banner/01.jpeg" alt="">
-                                                <div class="slider-overlay"></div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="slider__content">
-                                        <div class="slider__content_item">
-                                            <div class="post-title font-title">
-                                                <h4>
-                                                    <a href="javascript:void(0)" tabindex="-1">
-                                                        Update Soon
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <%} %>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <%} %>
             <div class="widget col-12 col-md-12   default  heading-style-2 manga-widget widget-manga-popular-slider">
                 <div class="widget__inner manga-widget widget-manga-popular-slider__inner c-widget-wrap">
                     <div class="popular-slider style-1" data-autoplay="0" data-style="style-1" data-count="4">

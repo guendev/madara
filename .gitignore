@@ -89,5 +89,6 @@ sw.*
 # Vim swap files
 *.swp
 /vue/
-slider.json
+slider.js
 mongodb_backup.sh
+/public/images/favicon/

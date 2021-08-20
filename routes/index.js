@@ -9,7 +9,11 @@ router.get('/', async (req, res, next) => {
     StoryController.getManyWithChapter('updatedAt', 0, 8, 2),
     StoryController.getManyWithChapter('views', 0, 6, 2)
   ])
-  res.render('index', { stories, topViews })
+  let slider = []
+  try {
+    slider = require('../slider.js')
+  } catch (e) {}
+  res.render('index', { stories, topViews, slider })
 })
 
 module.exports = router
