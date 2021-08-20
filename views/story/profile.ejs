@@ -42,11 +42,9 @@
                     <div class="summary_image">
                         <a href="/truyen-tranh/<%= story.slug %>.<%= story._id %>">
                             <img width="193" height="278"
-                                 data-src="<%= webAssets(story.avatar) %>"
-                                 class="img-responsive effect-fade lazyload"
-                                 src="https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-550105-193x278.jpg"
-                                 style="padding-top:278px;"
-                                 alt="wallhaven-550105"
+                                 src="<%= webAssets(story.avatar) %>"
+                                 class="img-responsive effect-fade"
+                                 alt="<%= story.title %>"
                                  sizes="(max-width: 193px) 100vw, 193px"
                             />
                         </a>
@@ -191,6 +189,20 @@
                                         <div class="action_detail"><span>Theo Dõi</span>
                                         </div>
                                     </div>
+                                    <% if (user && user._id === story.user) {%>
+                                        <div class="count-comment mt-3">
+                                            <div class="action_icon">
+                                                <a href="#manga-discussion">
+                                                    <i class="fas fa-pen"></i>
+                                                </a>
+                                            </div>
+                                            <div class="action_detail">
+                                            <span class="disqus-comment-count">
+                                                Chỉnh Sửa
+                                            </span>
+                                            </div>
+                                        </div>
+                                    <%} %>
                                 </div>
                             </div>
 

@@ -90,5 +90,9 @@ sw.*
 *.swp
 /vue/
 slider.js
-mongodb_backup.sh
 /public/images/favicon/
+/public/css/custom.css
+/modules/image/lib/
+/views/includes/ads
+/public/images/logo.*
+/demo/

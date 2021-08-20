@@ -34,10 +34,10 @@ showAds: story.adsense
                                             <div class="entry-content_wrap">
                                                 <div class="read-container">
                                                     <% if (story.adsense) { %>
-                                                        <%- include('includes/ads') -%>
+                                                        <%- include('includes/ads/block') -%>
                                                     <% } %>
                                                         <div class="chapter-note">
-                                                            <%= chapter.note || 'Nhóm Mới ComeBack đừng dùng chặn quảng cáo...tội lắm!'.toUpperCase() %>
+                                                            <%= chapter.note || process.env.NOTE_DEFAULT?.toUpperCase() %>
                                                         </div>
                                                     <div class="reading-content">
                                                         <% for (let i = 0; i < chapter.content.length; i++) { %>
@@ -50,12 +50,12 @@ showAds: story.adsense
                                                                 >
                                                             </div>
                                                             <% if (story.adsense && [15, 50, 75].includes(i)) { %>
-                                                                <%- include('includes/ads') -%>
+                                                                <%- include('includes/ads/block') -%>
                                                             <% } %>
                                                         <% } %>
                                                     </div>
                                                     <% if (story.adsense) { %>
-                                                        <%- include('includes/ads') -%>
+                                                        <%- include('includes/ads/block') -%>
                                                     <% } %>
                                                 </div>
                                             </div>

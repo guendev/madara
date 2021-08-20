@@ -9586,3 +9586,6 @@ body.modal-open.text-ui-light .modal .modal-content {
 body.text-ui-light .quick-searck-result {
   background: #262626;
 }
+.chapter-note:empty {
+  display: none;
+}

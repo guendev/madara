@@ -16,7 +16,7 @@
     <meta name="twitter:title" content="<%= title %> | <%= process.env.APP %>">
     <meta name="twitter:description" content="<%= description %>">
     <meta name="twitter:image" content="<%= seo_image %>">
-    <meta data-hid="fb:app_id" property="fb:app_id" content="155915046224033">
+    <meta data-hid="fb:app_id" property="fb:app_id" content="<%= process.env.FACEBOOK_APP_ID %>">
 
     <!-- favicon -->
 
@@ -30,7 +30,6 @@
     <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/favicon-72-precomposed.png">
     <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/favicon-57.png">
     <link rel="icon" sizes="32x32" href="/images/favicon/favicon-32.png">
-    <link rel="icon" sizes="192x192" href="/images/favicon/favicon-192.png">
     <link rel="manifest" href="/images/favicon/manifest.json">
 
 
@@ -40,6 +39,7 @@
     <link rel="stylesheet" id="slick-theme-css" href="/js/slick/slick-theme.css" type="text/css" media="all">
     <link rel="stylesheet" href="/css/loaders.min.css" type="text/css" media="all">
     <link rel="stylesheet" id="madara-css-css" href="/css/style.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/custom.css" type="text/css" media="all">
 
 
     <script type="text/javascript" src="/js/lazysizes/lazysizes.min.js" id="lazysizes-js"></script>
@@ -55,16 +55,17 @@
     <script>window._user = '<%= user ? user._id : '' %>'</script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130681925-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= process.env.ANALYTIC %>"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'UA-130681925-1');
+        gtag('config', '<%= process.env.ANALYTIC %>');
     </script>
 
     <% if (showAds) {%>
         <!-- Ads -->
+        <%- include('../includes/ads/auto') -%>
     <%} %>
 
 </head>

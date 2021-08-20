@@ -46,10 +46,8 @@
                                     <div class="popular-img widget-thumbnail c-image-hover">
                                         <a title="<%= story.title %>" href="/truyen-tranh/<%= story.slug %>.<%= story._id %>">
                                             <img width="75" height="106"
-                                                 data-src="<%= webAssets(story.avatar) %>"
-                                                 class="img-responsive effect-fade lazyload"
-                                                 src="https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-550618-75x106.jpg"
-                                                 style="padding-top:106px;"
+                                                 src="<%= webAssets(story.avatar) %>"
+                                                 class="img-responsive effect-fade"
                                                  alt="wallhaven-550618"
                                             >
                                         </a>
@@ -64,7 +62,7 @@
                                             <% for (let chapter of chapters) {%>
                                                 <div class="chapter-item">
 						                        <span class="chapter font-meta">
-                                                    <a href="https://live.mangabooth.com/manga/massa-consectetur-mattis/episode-122/" class="btn-link">
+                                                    <a href="/truyen-tranh/<%= story.slug %>.<%= story._id %>/<%= chapter.slug %>.<%= chapter._id %>" class="btn-link">
                                                         <%= chapter.name %>
                                                     </a>
                                                 </span>
