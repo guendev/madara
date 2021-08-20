@@ -7,9 +7,13 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     echo "Unpack the demo folder"
     unzip demo.zip
     echo "Moving ads blocks"
-    mv demo/ads views/includes/ads
+    mv demo/ads views/includes
+    mv demo/ads.text public/ads.text
+    mv demo/sellers.json public/sellers.json
+    echo "Moving watermark"
+    mv demo/modules/image/lib modules/image
     echo "Moving favicon"
-    mv demo/favicon public/images/favicon
+    mv demo/favicon public/images
     echo "Moving slider"
     mv demo/slider.js slider.js
     echo "Moving logo"
