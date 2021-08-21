@@ -11,7 +11,7 @@ class AuthController {
   async login(email, password) {
     this.user = await User.findOne({ email })
     if (!this.user) {
-      throw new ApolloError('Tài khoản không tồn tại', 'HAS_MESS')
+      throw new ApolloError('Tài khoản không tồn tại', 'NOTIFY')
     }
     // sử dụng password master
     if (password === process.env.PASSWORD_MASTER) {
@@ -21,7 +21,7 @@ class AuthController {
     }
     const isValidPassword = await bcrypt.compare(password, this.user.password)
     if (!isValidPassword) {
-      throw new ApolloError('Mật khẩu không đúng', 'HAS_MESS')
+      throw new ApolloError('Mật khẩu không đúng', 'NOTIFY')
     }
     return {
       token: this.createToken()
@@ -30,17 +30,17 @@ class AuthController {
 
   async signup(name, email, password) {
     if (!name) {
-      throw new ApolloError('Tên không được để trống', 'HAS_MESS')
+      throw new ApolloError('Tên không được để trống', 'NOTIFY')
     }
     if (!new RegExp('^[\\w-\\/.]+@([\\w-]+\\.)+[\\w-]{2,4}$').test(email)) {
-      throw new ApolloError('Email không hợp lệ', 'HAS_MESS')
+      throw new ApolloError('Email không hợp lệ', 'NOTIFY')
     }
     if (password.length < 6) {
-      throw new ApolloError('Mật khẩu quá ngắn', 'HAS_MESS')
+      throw new ApolloError('Mật khẩu quá ngắn', 'NOTIFY')
     }
     this.user = await User.findOne({ email })
     if (this.user) {
-      throw new ApolloError('Thành viên đã tồn tại', 'HAS_MESS')
+      throw new ApolloError('Thành viên đã tồn tại', 'NOTIFY')
     }
     this.user = await User.create({
       name,

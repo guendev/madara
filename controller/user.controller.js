@@ -23,11 +23,11 @@ class UserController {
         return this.user
       }
       if (!new RegExp('^[\\w-\\/.]+@([\\w-]+\\.)+[\\w-]{2,4}$').test(value)) {
-        throw new ApolloError('Email không hợp lệ', 'HAS_MESS')
+        throw new ApolloError('Email không hợp lệ', 'NOTIFY')
       }
       const check = await User.find({ email: value }).countDocuments()
       if (check) {
-        throw new ApolloError('Email đã được sử dụng', 'HAS_MESS')
+        throw new ApolloError('Email đã được sử dụng', 'NOTIFY')
       }
       return this._updateFeild('email', value)
     }
@@ -38,15 +38,15 @@ class UserController {
     const user = await User.findById(this.user._id)
     const isValidPassword = await bcrypt.compare(oldPass, user.password)
     if (!isValidPassword) {
-      throw new ApolloError('Mật khẩu không đúng', 'HAS_MESS')
+      throw new ApolloError('Mật khẩu không đúng', 'NOTIFY')
     }
     if (newPass.length < 6) {
-      throw new ApolloError('Mật khẩu quá ngắn', 'HAS_MESS')
+      throw new ApolloError('Mật khẩu quá ngắn', 'NOTIFY')
     }
 
     return bcrypt.hash(newPass, 10, (err, hash) => {
       if (err) {
-        throw new ApolloError('Đã xảy ra lỗi', 'HAS_MESS')
+        throw new ApolloError('Đã xảy ra lỗi', 'NOTIFY')
       }
       return this._changePassword(hash)
     })
