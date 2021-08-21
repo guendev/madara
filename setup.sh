@@ -7,19 +7,19 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     echo "Unpack the demo folder"
     unzip demo.zip
     echo "Moving ads blocks"
-    mv demo/ads views/includes
-    mv demo/ads.text public/ads.text
-    mv demo/sellers.json public/sellers.json
+    rsync -a demo/ads views/includes
+    rsync -a demo/ads.text public/ads.text
+    rsync -a demo/sellers.json public/sellers.json
     echo "Moving watermark"
-    mv demo/modules/image/lib modules/image
+    rsync -a demo/modules/image/lib modules/image
     echo "Moving favicon"
-    mv demo/favicon public/images
+    rsync -a demo/favicon public/images
     echo "Moving slider"
-    mv demo/slider.js slider.js
+    rsync -a demo/slider.js slider.js
     echo "Moving logo"
-    mv demo/logo.svg public/images/logo.svg
+    rsync -a demo/logo.svg public/images/logo.svg
     echo "Moving css"
-    mv demo/css/custom.css public/css/custom.css
+    rsync -a demo/css/custom.css public/css/custom.css
     echo "Remove demo directory"
     rm -r demo
     echo "Tks..."
