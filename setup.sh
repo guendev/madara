@@ -4,6 +4,7 @@ echo -n "Do you want to import demo (Y/N)? "
 # shellcheck disable=SC2162
 read answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
+   sudo apt-get install zip unzip
     echo "Unpack the demo folder"
     unzip demo.zip
     echo "Moving ads blocks"

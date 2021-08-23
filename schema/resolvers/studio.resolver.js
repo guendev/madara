@@ -37,23 +37,12 @@ module.exports = {
     publishStory: async (
       _,
       {
-        input: {
-          _id,
-          title,
-          otherTitle,
-          author,
-          team,
-          avatar,
-          content,
-          adsense,
-          categories,
-          badge
-        }
+        input: { _id, title, otherTitle, author, team, avatar, content, adsense, categories, badge }
       },
       { user }
     ) => {
       const studioController = new StudioController(user)
-      if (_id) {
+      if (!!_id) {
         return studioController.updateStory(
           _id,
           title,
@@ -83,22 +72,11 @@ module.exports = {
 
     publishChapter: async (
       _,
-      {
-        input: {
-          _id,
-          name,
-          content,
-          avatar,
-          story,
-          nameExtend,
-          publishTime,
-          note
-        }
-      },
+      { input: { _id, name, content, avatar, story, nameExtend, publishTime, note } },
       { user }
     ) => {
       const studioController = new StudioController(user)
-      if (_id) {
+      if (!!_id) {
         return studioController.updateChapter(
           _id,
           name,
