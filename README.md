@@ -200,5 +200,5 @@ To restore the data uncompress the file and run:
 `mongorestore --drop -d <database-name> <directory-of-dumped-backup>`
 
 ## License
-- Email: dnstylish@gmail.com
+- Email: contact@guen.dev
 - Designed by Mangabooth
